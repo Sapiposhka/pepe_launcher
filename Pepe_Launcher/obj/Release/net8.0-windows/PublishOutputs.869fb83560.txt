@@ -1,0 +1,5 @@
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\publish\Pepe_Launcher.exe
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\publish\Pepe_Launcher.dll
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\publish\Pepe_Launcher.deps.json
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\publish\Pepe_Launcher.runtimeconfig.json
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\publish\Pepe_Launcher.pdb

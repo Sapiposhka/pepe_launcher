@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <Target Name="BuildAndCopyUpdater" AfterTargets="Build">
+    <MSBuild Projects="..\Pepe_Updater\Pepe_Updater.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration)" />
+    <Copy SourceFiles="..\Pepe_Updater\bin\$(Configuration)\net8.0-windows\Pepe_Updater.exe"
+          DestinationFolder="$(OutDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="PublishAndCopyUpdater" AfterTargets="Publish">
+    <PropertyGroup>
+      <UpdaterPublishDir>..\Pepe_Updater\obj\$(Configuration)\net8.0-windows\win-x64\updater_publish\</UpdaterPublishDir>
+    </PropertyGroup>
+    <MSBuild Projects="..\Pepe_Updater\Pepe_Updater.csproj"
+             Targets="Publish"
+             Properties="Configuration=$(Configuration);PublishDir=$(UpdaterPublishDir);SelfContained=true;RuntimeIdentifier=win-x64;PublishSingleFile=true" />
+
+    <!-- На некоторых вариантах publish exe может оказаться не в корне папки. -->
+    <Copy SourceFiles="$(UpdaterPublishDir)Pepe_Updater.exe"
+          DestinationFolder="$(PublishDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

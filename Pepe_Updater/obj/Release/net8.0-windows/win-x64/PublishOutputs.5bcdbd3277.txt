@@ -1,0 +1,2 @@
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\bin\Release\net8.0-windows\win-x64\publish\Pepe_Updater.pdb
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\bin\Release\net8.0-windows\win-x64\publish\Pepe_Updater.exe

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Pepe_Updater/1.0.0": {
+        "runtime": {
+          "Pepe_Updater.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Pepe_Updater/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

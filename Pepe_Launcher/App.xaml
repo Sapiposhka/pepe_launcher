@@ -1,0 +1,12 @@
+<Application x:Class="Pepe_Launcher.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Pepe_Launcher"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+
+        <local:BoolToStatusConverter x:Key="BoolToStatusConverter"/>
+        <local:BoolToActionConverter x:Key="BoolToActionConverter"/>
+    </Application.Resources>
+</Application>

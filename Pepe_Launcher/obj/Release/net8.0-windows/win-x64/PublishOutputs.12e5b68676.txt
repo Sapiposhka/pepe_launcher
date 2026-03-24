@@ -1,0 +1,7 @@
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\win-x64\publish\Pepe_Launcher.pdb
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\win-x64\publish\D3DCompiler_47_cor3.dll
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\win-x64\publish\PenImc_cor3.dll
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\win-x64\publish\PresentationNative_cor3.dll
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\win-x64\publish\vcruntime140_cor3.dll
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\win-x64\publish\wpfgfx_cor3.dll
+c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Launcher\bin\Release\net8.0-windows\win-x64\publish\Pepe_Launcher.exe

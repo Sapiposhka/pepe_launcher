@@ -1,0 +1,44 @@
+<font size="12">Programming and Game Design</font>
+<font size="20" color="bbbefb"><b>James Sayer</b></font>
+
+<font size="12">Artwork and Testing</font>
+<font size="20" color="bbbefb"><b>Kristin Wilson</b></font>
+
+<font size="12">Music Creation and Production</font>
+<font size="20" color="bbbefb"><b>UniqueTracks</b></font>
+
+<font size="12">Senior Producer</font>
+<font size="20" color="bbbefb"><b>Erik Zwerling</b></font>
+
+<font size="12">Assistant Producer</font>
+<font size="20" color="bbbefb"><b>Kristina Tomalesky</b></font>
+
+<font size="12">Quality Assurance</font>
+<font size="20" color="bbbefb"><b>Rebekah Cunningham</b></font>
+
+<font size="12">Marketing Manager</font>
+<font size="20" color="bbbefb"><b>Larissa McCleary</b></font>
+
+<font size="12">Playground Game Engine</font>
+<font size="20" color="bbbefb"><b>Tim Mensch <i>(Lead)</i></b></font>
+<font size="20" color="bbbefb"><b>Reggie Seagraves <i>(Mac Lead)</i></b></font>
+<font size="20" color="bbbefb"><b>Brad Edelman</b></font>
+<font size="20" color="bbbefb"><b>Jim Brooks</b></font>
+
+<font size="12">Special Thanks</font>
+<font size="20" color="bbbefb"><b>Maria Waters</b></font>
+<font size="20" color="bbbefb"><b>Solveig Pederson</b></font>
+<font size="20" color="bbbefb"><b>Ethan Levy</b></font>
+
+
+
+
+
+
+
+
+
+
+
+
+<font size="50" color="bbbefb"><b>The End</b></font>

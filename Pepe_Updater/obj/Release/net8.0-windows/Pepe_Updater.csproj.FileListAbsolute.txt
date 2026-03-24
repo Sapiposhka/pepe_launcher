@@ -1,0 +1,14 @@
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\bin\Release\net8.0-windows\Pepe_Updater.exe
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\bin\Release\net8.0-windows\Pepe_Updater.deps.json
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\bin\Release\net8.0-windows\Pepe_Updater.runtimeconfig.json
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\bin\Release\net8.0-windows\Pepe_Updater.dll
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\bin\Release\net8.0-windows\Pepe_Updater.pdb
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\Pepe_Updater.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\Pepe_Updater.AssemblyInfoInputs.cache
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\Pepe_Updater.AssemblyInfo.cs
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\Pepe_Updater.csproj.CoreCompileInputs.cache
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\Pepe_Updater.dll
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\refint\Pepe_Updater.dll
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\Pepe_Updater.pdb
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\Pepe_Updater.genruntimeconfig.cache
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\ref\Pepe_Updater.dll

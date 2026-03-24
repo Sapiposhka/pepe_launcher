@@ -1,0 +1,70 @@
+{
+  "games": [
+    {
+      "name": "Yukon",
+      "downloadUrl": "https://disk.yandex.ru/d/yQb-z5lQyM0gHA",
+      "exePath": "Yukon\\Yukon.exe",
+      "imageUrl": "https://disk.yandex.ru/i/239A9iqWfq1TYA"
+    },
+    {
+      "name": "Zuma_Deluxe",
+      "downloadUrl": "https://disk.yandex.ru/d/GIm5eWN_ZSg0IQ",
+      "exePath": "ZumaDeluxePortable\\zuma.exe",
+      "imageUrl": "https://disk.yandex.ru/i/PBYjTuF7mkmGzQ"
+    },
+    {
+      "name": "Farm Frenzy 2",
+      "downloadUrl": "https://disk.yandex.ru/d/DruAVEF--MwyoQ",
+      "exePath": "Farm Frenzy 2\\farm2.exe",
+      "imageUrl": "https://disk.yandex.ru/i/3Gt97fqWuDDK3g"
+    },
+    {
+      "name": "Farm Frenzy 3",
+      "downloadUrl": "https://disk.yandex.ru/d/rpkEEj-fouHUXg",
+      "exePath": "Farm Frenzy 3\\FarmFrenzy3.exe",
+      "imageUrl": "https://disk.yandex.ru/i/miI3KcVVPxRRJw"
+    },
+    {
+      "name": "The Treasures of Montezuma",
+      "downloadUrl": "https://disk.yandex.ru/d/gxPLEf-xGSRi4A",
+      "exePath": "The Treasures of Montezuma\\TheTreasuresofMontezuma.exe",
+      "imageUrl": "https://disk.yandex.ru/i/5Pa1rHJ_Ly9WeA"
+    },
+    {
+      "name": "Swords and Soldiers",
+      "downloadUrl": "https://disk.yandex.ru/d/dYFkOcF3dhj_8Q",
+      "exePath": "Swords and Soldiers\\Swords and Soldiers Launcher.exe",
+      "imageUrl": "https://disk.yandex.ru/i/XjoUlEFSjJ1nDA"
+    },
+    {
+      "name": "Tasty planet",
+      "downloadUrl": "https://disk.yandex.ru/d/2fAfl1n8Wtzutw",
+      "exePath": "Tasty Planet\\tastyplanet.exe",
+      "imageUrl": "https://disk.yandex.ru/i/DRAkMaBxGTKU6g"
+    },
+    {
+      "name": "The Binding of Isaac Repentance",
+      "downloadUrl": "https://disk.yandex.ru/d/JDWcUMTHK0BDFg",
+      "exePath": "The Binding of Isaac Repentance\\isaac-ng.exe",
+      "imageUrl": "https://disk.yandex.ru/i/-gpZMqrY8EJAAw"
+    },
+    {
+      "name": "Mindustry",
+      "downloadUrl": "https://disk.yandex.ru/d/7-7zYLjZS0HeWw",
+      "exePath": "Mindustry\\Mindustry.exe",
+      "imageUrl": "https://disk.yandex.ru/i/a_9xDvef58gdyQ"
+    },
+    {
+      "name": "ULTRAKILL_Demo",
+      "downloadUrl": "https://disk.yandex.ru/d/cPP1XmV9ZkAfCA",
+      "exePath": "ULTRAKILL_Demo\\ULTRAKILL.exe",
+      "imageUrl": "https://disk.yandex.ru/i/P7D50Rzd3Kvu0Q"
+    },
+    {
+      "name": "PlantsVsZombies",
+      "downloadUrl": "https://disk.yandex.ru/d/FzQ6g0XT0cqaaA",
+      "exePath": "PlantsVsZombies.EN.waredata.com\\PlantsVsZombies.exe",
+      "imageUrl": "https://disk.yandex.ru/i/QEeNx-ej9d6nBg"
+    }
+  ]
+}
