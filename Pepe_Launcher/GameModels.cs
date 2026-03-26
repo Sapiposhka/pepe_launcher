@@ -5,6 +5,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -19,6 +20,7 @@ public class GameItem
 {
     public string Name { get; set; } = string.Empty;
     public string DownloadUrl { get; set; } = string.Empty;
+    public List<string> DownloadUrls { get; set; } = new();
     public string ExePath { get; set; } = string.Empty;
     public string ImageUrl { get; set; } = string.Empty;
 
@@ -92,23 +94,109 @@ public static class GameService
         return gameList;
     }
 
-    public static async Task InstallGameAsync(GameItem game, IProgress<double>? progress = null)
+    public static async Task InstallGameAsync(GameItem game, IProgress<double>? progress = null,
+        CancellationToken cancellationToken = default)
     {
         Directory.CreateDirectory(game.InstallFolder);
 
         string tempZip = Path.Combine(Path.GetTempPath(), $"{game.Name}.zip");
-
-        // downloadUrl в JSON — это тоже публичная ссылка disk.yandex.ru/d/...
-        var directUrl = await ResolveYandexPublicUrlAsync(game.DownloadUrl);
-        await DownloadFileWithProgressAsync(directUrl, tempZip, progress);
-
-        if (!Directory.Exists(game.InstallFolder))
+        try
         {
-            Directory.CreateDirectory(game.InstallFolder);
+            var sourceUrls = GetSourceUrls(game);
+            if (sourceUrls.Count == 0)
+            {
+                throw new InvalidOperationException($"У игры \"{game.Name}\" не указан downloadUrl/downloadUrls.");
+            }
+
+            // Старый формат: один URL -> как раньше.
+            if (sourceUrls.Count == 1)
+            {
+                var directUrl = await ResolveYandexPublicUrlAsync(sourceUrls[0]);
+                await DownloadFileWithProgressAsync(directUrl, tempZip, progress, cancellationToken);
+            }
+            else
+            {
+                // Multipart: качаем части и склеиваем в единый ZIP.
+                var partFiles = new List<string>();
+                try
+                {
+                    for (var i = 0; i < sourceUrls.Count; i++)
+                    {
+                        cancellationToken.ThrowIfCancellationRequested();
+                        var partTemp = Path.Combine(Path.GetTempPath(), $"{game.Name}.part{i + 1:000}");
+                        partFiles.Add(partTemp);
+
+                        var directUrl = await ResolveYandexPublicUrlAsync(sourceUrls[i]);
+                        var index = i;
+                        var partProgress = new Progress<double>(p =>
+                        {
+                            // Грубый общий прогресс: вклад каждой части одинаковый.
+                            var combined = ((index * 100.0) + p) / sourceUrls.Count;
+                            progress?.Report(Math.Clamp(combined, 0, 100));
+                        });
+                        await DownloadFileWithProgressAsync(directUrl, partTemp, partProgress, cancellationToken);
+                    }
+
+                    await MergePartsIntoZipAsync(partFiles, tempZip, cancellationToken);
+                    progress?.Report(100);
+                }
+                finally
+                {
+                    foreach (var part in partFiles)
+                    {
+                        if (File.Exists(part))
+                        {
+                            try { File.Delete(part); } catch { /* ignore */ }
+                        }
+                    }
+                }
+            }
+
+            if (!Directory.Exists(game.InstallFolder))
+            {
+                Directory.CreateDirectory(game.InstallFolder);
+            }
+
+            cancellationToken.ThrowIfCancellationRequested();
+            System.IO.Compression.ZipFile.ExtractToDirectory(tempZip, game.InstallFolder, true);
+        }
+        finally
+        {
+            if (File.Exists(tempZip))
+            {
+                try { File.Delete(tempZip); } catch { /* ignore */ }
+            }
+        }
+    }
+
+    private static List<string> GetSourceUrls(GameItem game)
+    {
+        if (game.DownloadUrls is { Count: > 0 })
+        {
+            return game.DownloadUrls
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .Select(x => x.Trim())
+                .ToList();
         }
 
-        System.IO.Compression.ZipFile.ExtractToDirectory(tempZip, game.InstallFolder, true);
-        File.Delete(tempZip);
+        if (!string.IsNullOrWhiteSpace(game.DownloadUrl))
+        {
+            return new List<string> { game.DownloadUrl.Trim() };
+        }
+
+        return new List<string>();
+    }
+
+    private static async Task MergePartsIntoZipAsync(List<string> partFiles, string outputZipPath,
+        CancellationToken cancellationToken)
+    {
+        await using var output = new FileStream(outputZipPath, FileMode.Create, FileAccess.Write, FileShare.None);
+        foreach (var part in partFiles)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            await using var input = new FileStream(part, FileMode.Open, FileAccess.Read, FileShare.Read);
+            await input.CopyToAsync(output, 81920, cancellationToken);
+        }
     }
 
     public static void DeleteGame(GameItem game)
@@ -243,17 +331,18 @@ public static class GameService
         throw new InvalidOperationException("Ответ Яндекс Диска не содержит поля href.");
     }
 
-    private static async Task DownloadFileWithProgressAsync(string url, string destinationFilePath, IProgress<double>? progress)
+    private static async Task DownloadFileWithProgressAsync(string url, string destinationFilePath, IProgress<double>? progress,
+        CancellationToken cancellationToken = default)
     {
         using var request = new HttpRequestMessage(HttpMethod.Get, url);
         request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("*/*"));
 
-        using var response = await Http.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+        using var response = await Http.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
         response.EnsureSuccessStatusCode();
 
         var totalBytes = response.Content.Headers.ContentLength;
 
-        await using var input = await response.Content.ReadAsStreamAsync();
+        await using var input = await response.Content.ReadAsStreamAsync(cancellationToken);
         await using var output = new FileStream(destinationFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
 
         var buffer = new byte[81920];
@@ -262,9 +351,9 @@ public static class GameService
 
         progress?.Report(0);
 
-        while ((read = await input.ReadAsync(buffer, 0, buffer.Length)) > 0)
+        while ((read = await input.ReadAsync(buffer.AsMemory(0, buffer.Length), cancellationToken)) > 0)
         {
-            await output.WriteAsync(buffer, 0, read);
+            await output.WriteAsync(buffer.AsMemory(0, read), cancellationToken);
             totalRead += read;
 
             if (totalBytes.HasValue && totalBytes.Value > 0)

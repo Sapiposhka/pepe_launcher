@@ -195,3 +195,4 @@ c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\ne
 c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\win-x64\Pepe_Updater.pdb
 c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\win-x64\Pepe_Updater.genruntimeconfig.cache
 c:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\win-x64\ref\Pepe_Updater.dll
+C:\Users\Jurich\source\repos\Crossword\Pepe_Launcher\Pepe_Updater\obj\Release\net8.0-windows\win-x64\Pepe_Updater.sourcelink.json

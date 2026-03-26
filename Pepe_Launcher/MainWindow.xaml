@@ -55,6 +55,13 @@
                                          Height="10"
                                          Value="0"
                                          Visibility="Collapsed"/>
+                            <Button x:Name="CancelDownloadButton"
+                                    Content="Отменить загрузку"
+                                    Margin="0,8,0,0"
+                                    Padding="8,3"
+                                    HorizontalAlignment="Left"
+                                    Visibility="Collapsed"
+                                    Click="CancelDownloadButton_Click"/>
                         </StackPanel>
                     </Border>
 

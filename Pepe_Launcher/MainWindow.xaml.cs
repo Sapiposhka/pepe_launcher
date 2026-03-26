@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -12,6 +13,8 @@ namespace Pepe_Launcher
     {
         private List<GameItem> _allGames = new();
         private bool _isUpdateInProgress;
+        private bool _isGameDownloadInProgress;
+        private CancellationTokenSource? _gameDownloadCts;
 
         public MainWindow()
         {
@@ -57,8 +60,17 @@ namespace Pepe_Launcher
 
             if (!game.IsInstalled)
             {
+                if (_isGameDownloadInProgress)
+                {
+                    MessageBox.Show("Сейчас уже идет загрузка другой игры. Дождитесь завершения или нажмите Отменить загрузку.",
+                        "Загрузка уже выполняется", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
                 try
                 {
+                    _isGameDownloadInProgress = true;
+                    _gameDownloadCts = new CancellationTokenSource();
                     ShowDownloadProgress($"Скачивание {game.Name}...");
                     btn.IsEnabled = false;
                     btn.Content = "Скачивание...";
@@ -67,7 +79,11 @@ namespace Pepe_Launcher
                         DownloadProgressBar.Value = p;
                         DownloadStatusText.Text = $"Скачивание {game.Name}... {Math.Round(p)}%";
                     });
-                    await GameService.InstallGameAsync(game, progress);
+                    await GameService.InstallGameAsync(game, progress, _gameDownloadCts.Token);
+                }
+                catch (OperationCanceledException)
+                {
+                    MessageBox.Show("Загрузка игры отменена.", "Отмена", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {
@@ -76,6 +92,9 @@ namespace Pepe_Launcher
                 }
                 finally
                 {
+                    _gameDownloadCts?.Dispose();
+                    _gameDownloadCts = null;
+                    _isGameDownloadInProgress = false;
                     HideDownloadProgress();
                     btn.IsEnabled = true;
                 }
@@ -160,18 +179,17 @@ namespace Pepe_Launcher
             }
         }
 
-        private void ShowDownloadProgress(string initialText)
-        {
-            DownloadStatusText.Text = initialText;
-            DownloadProgressBar.Value = 0;
-            DownloadProgressBar.Visibility = Visibility.Visible;
-        }
-
         private void HideDownloadProgress()
         {
             DownloadProgressBar.Visibility = Visibility.Collapsed;
             DownloadStatusText.Text = string.Empty;
             DownloadProgressBar.Value = 0;
+            CancelDownloadButton.Visibility = Visibility.Collapsed;
+        }
+
+        private void CancelDownloadButton_Click(object sender, RoutedEventArgs e)
+        {
+            _gameDownloadCts?.Cancel();
         }
 
         private async void CheckUpdatesButton_Click(object sender, RoutedEventArgs e)
@@ -246,6 +264,14 @@ namespace Pepe_Launcher
                 parts.Add(version.Revision);
 
             return string.Join(".", parts);
+        }
+
+        private void ShowDownloadProgress(string initialText)
+        {
+            DownloadStatusText.Text = initialText;
+            DownloadProgressBar.Value = 0;
+            DownloadProgressBar.Visibility = Visibility.Visible;
+            CancelDownloadButton.Visibility = _isGameDownloadInProgress ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }

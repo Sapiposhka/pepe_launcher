@@ -61,10 +61,70 @@
       "imageUrl": "https://disk.yandex.ru/i/P7D50Rzd3Kvu0Q"
     },
     {
+      "name": "FNAF",
+      "downloadUrl": "https://disk.yandex.ru/d/TjMPeKfXfZosGQ",
+      "exePath": "FNAF\\FiveNightsatFreddys.exe",
+      "imageUrl": "https://disk.yandex.ru/i/tGq6_SxnSm-JFw"
+    },
+    {
+      "name": "FNAF 2",
+      "downloadUrl": "https://disk.yandex.ru/d/KwdD-DCV4Fwj5A",
+      "exePath": "FNAF 2\\FiveNightsatFreddys2.exe",
+      "imageUrl": "https://disk.yandex.ru/i/Bzgg8wbWbgbV8A"
+    },
+    {
+      "name": "FNAF 3",
+      "downloadUrl": "https://disk.yandex.ru/d/PthmuB6SuRuyoA",
+      "exePath": "FNAF 3\\FiveNightsatFreddys3.exe",
+      "imageUrl": "https://disk.yandex.ru/i/8LFVtDFwrLD6OQ"
+    },
+    {
+      "name": "Neighbours from Hell",
+      "downloadUrl": "https://disk.yandex.ru/d/zjqztG3Je0hL8A",
+      "exePath": "Neighbours from Hell\\bin\\game.exe",
+      "imageUrl": "https://disk.yandex.ru/i/bA6SbcZ7KZLdXQ"
+    },
+    {
+      "name": "Neighbours from Hell 2",
+      "downloadUrl": "https://disk.yandex.ru/d/7PaZg-qsitza_w",
+      "exePath": "Neighbours from Hell 2\\bin\\game.exe",
+      "imageUrl": "https://disk.yandex.ru/i/mmUG7ruXCVXKnw"
+    },
+    {
       "name": "PlantsVsZombies",
       "downloadUrl": "https://disk.yandex.ru/d/FzQ6g0XT0cqaaA",
       "exePath": "PlantsVsZombies.EN.waredata.com\\PlantsVsZombies.exe",
       "imageUrl": "https://disk.yandex.ru/i/QEeNx-ej9d6nBg"
+    },
+    {
+      "name": "PvZ Fusion",
+      "downloadUrl": "https://disk.yandex.ru/d/jxJoSrJTAzh1Dg",
+      "exePath": "PvZ Fusion\\PlantsVsZombiesRH.exe",
+      "imageUrl": "https://disk.yandex.ru/i/6qXUHgWyxWqfAQ"
+    },
+    {
+      "name": "CS 1.6",
+      "downloadUrl": "https://disk.yandex.ru/d/w35hLYrkB67B-w",
+      "exePath": "CS 1.6\\cs.exe",
+      "imageUrl": "https://disk.yandex.ru/i/bF88thlHJzAlGQ"
+    },
+    {
+      "name": "Warcraft III Reign of Chaos",
+      "downloadUrls": [
+        "https://disk.yandex.ru/d/a9SjpvSfrUDSSg",
+        "https://disk.yandex.ru/d/G0JNTu8MBwjkwQ"
+      ],
+      "exePath": "Warcraft III\\Warcraft III.exe",
+      "imageUrl": "https://disk.yandex.ru/i/y6OZ1tMhBnaqLg"
+    },
+    {
+      "name": "Warcraft III The Frozen Throne",
+      "downloadUrls": [
+        "https://disk.yandex.ru/d/a9SjpvSfrUDSSg",
+        "https://disk.yandex.ru/d/G0JNTu8MBwjkwQ"
+      ],
+      "exePath": "Warcraft III\\Frozen Throne.exe",
+      "imageUrl": "https://disk.yandex.ru/i/nUCQEhGX7ne7pA"
     }
   ]
 }
