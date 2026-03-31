@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|c:\\users\\jurich\\source\\repos\\crossword\\pepe_launcher\\pepe_launcher\\pepe_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|solutionrelative:pepe_launcher\\pepe_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|c:\\users\\jurich\\source\\repos\\crossword\\pepe_launcher\\pepe_launcher\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|solutionrelative:pepe_launcher\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -15,16 +11,20 @@
       "RelativeMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|solutionrelative:pepe_launcher\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|c:\\users\\jurich\\source\\repos\\crossword\\pepe_launcher\\pepe_launcher\\gamemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|solutionrelative:pepe_launcher\\gamemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|c:\\users\\jurich\\source\\repos\\crossword\\pepe_launcher\\pepe_launcher\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|solutionrelative:pepe_launcher\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|c:\\users\\jurich\\source\\repos\\crossword\\pepe_launcher\\pepe_launcher\\gamemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|solutionrelative:pepe_launcher\\gamemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|c:\\users\\jurich\\source\\repos\\crossword\\pepe_launcher\\pepe_launcher\\updateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|solutionrelative:pepe_launcher\\updateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|c:\\users\\jurich\\source\\repos\\crossword\\pepe_launcher\\pepe_launcher\\pepe_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{B69C8BC9-8A24-4A13-A01A-30F0FC023070}|Pepe_Launcher\\Pepe_Launcher.csproj|solutionrelative:pepe_launcher\\pepe_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,29 +34,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Pepe_Launcher",
               "DocumentMoniker": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\Pepe_Launcher\\Pepe_Launcher.csproj",
               "RelativeDocumentMoniker": "Pepe_Launcher\\Pepe_Launcher.csproj",
               "ToolTip": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\Pepe_Launcher\\Pepe_Launcher.csproj",
               "RelativeToolTip": "Pepe_Launcher\\Pepe_Launcher.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-26T20:31:30.27Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-26T20:31:30.27Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "UpdateService.cs",
               "DocumentMoniker": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\Pepe_Launcher\\UpdateService.cs",
               "RelativeDocumentMoniker": "Pepe_Launcher\\UpdateService.cs",
               "ToolTip": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\Pepe_Launcher\\UpdateService.cs",
               "RelativeToolTip": "Pepe_Launcher\\UpdateService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAABdAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAABYwB0AAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-20T08:35:44.181Z"
             },
@@ -68,13 +67,13 @@
               "RelativeDocumentMoniker": "Pepe_Launcher\\GameModels.cs",
               "ToolTip": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\Pepe_Launcher\\GameModels.cs",
               "RelativeToolTip": "Pepe_Launcher\\GameModels.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA1wCcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAzwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-16T18:46:10.801Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\Pepe_Launcher\\App.xaml",
               "RelativeDocumentMoniker": "Pepe_Launcher\\App.xaml",
@@ -86,7 +85,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\Pepe_Launcher\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Pepe_Launcher\\MainWindow.xaml",
@@ -98,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Jurich\\source\\repos\\Crossword\\Pepe_Launcher\\Pepe_Launcher\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Pepe_Launcher\\MainWindow.xaml.cs",

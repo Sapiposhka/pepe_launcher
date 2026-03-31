@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
 namespace Pepe_Launcher
@@ -21,6 +23,27 @@ namespace Pepe_Launcher
             InitializeComponent();
             Loaded += MainWindow_Loaded;
         }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+            if (PresentationSource.FromVisual(this) is HwndSource source)
+                TrySetImmersiveDarkTitleBar(source.Handle, true);
+        }
+
+        /// <summary>Системная полоса заголовка Windows в тёмном стиле (иконка и текст остаются читаемыми).</summary>
+        private static void TrySetImmersiveDarkTitleBar(IntPtr hwnd, bool dark)
+        {
+            const int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
+            const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
+            int value = dark ? 1 : 0;
+            int size = Marshal.SizeOf<int>();
+            if (DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, ref value, size) != 0)
+                DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1, ref value, size);
+        }
+
+        [DllImport("dwmapi.dll", PreserveSig = true)]
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {

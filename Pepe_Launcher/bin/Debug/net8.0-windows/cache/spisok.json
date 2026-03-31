@@ -43,6 +43,12 @@
       "imageUrl": "https://disk.yandex.ru/i/DRAkMaBxGTKU6g"
     },
     {
+      "name": "Solar 2",
+      "downloadUrl": "https://disk.yandex.ru/d/2HKC0mCeyak4OQ",
+      "exePath": "Solar 2\\Solar2.exe",
+      "imageUrl": "https://disk.yandex.ru/i/L7DGk6K6mQqa3w"
+    },
+    {
       "name": "The Binding of Isaac Repentance",
       "downloadUrl": "https://disk.yandex.ru/d/JDWcUMTHK0BDFg",
       "exePath": "The Binding of Isaac Repentance\\isaac-ng.exe",
@@ -109,7 +115,7 @@
       "imageUrl": "https://disk.yandex.ru/i/bF88thlHJzAlGQ"
     },
     {
-      "name": "Warcraft III Reign of Chaos",
+      "name": "Warcraft III + DotA",
       "downloadUrls": [
         "https://disk.yandex.ru/d/a9SjpvSfrUDSSg",
         "https://disk.yandex.ru/d/G0JNTu8MBwjkwQ"
@@ -118,7 +124,7 @@
       "imageUrl": "https://disk.yandex.ru/i/y6OZ1tMhBnaqLg"
     },
     {
-      "name": "Warcraft III The Frozen Throne",
+      "name": "Warcraft III + DotA",
       "downloadUrls": [
         "https://disk.yandex.ru/d/a9SjpvSfrUDSSg",
         "https://disk.yandex.ru/d/G0JNTu8MBwjkwQ"

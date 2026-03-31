@@ -4,138 +4,202 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Pepe Launcher" Height="540" Width="1200"
+        Title="Pepe Launcher" Height="580" Width="1180"
+        MinHeight="480" MinWidth="900"
         WindowStartupLocation="CenterScreen"
-        Background="#111827">
-    <DockPanel Margin="10">
-        <DockPanel DockPanel.Dock="Top" Margin="0,0,0,10">
-            <Button x:Name="CheckUpdatesButton"
-                    Content="Проверить обновления"
-                    DockPanel.Dock="Right"
-                    Padding="10,5"
-                    Click="CheckUpdatesButton_Click"/>
+        Background="#0f172a">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="76"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Pepe Launcher"
-                           Foreground="White"
-                           FontSize="24"
-                           FontWeight="Bold"
-                           VerticalAlignment="Center"/>
-                <CheckBox x:Name="OnlyInstalledCheckBox"
-                          Content="Показывать только установленные"
-                          Margin="30,0,0,0"
-                          VerticalAlignment="Center"
-                          Foreground="White"
-                          Checked="FilterChanged"
-                          Unchecked="FilterChanged"/>
-            </StackPanel>
-        </DockPanel>
+        <!-- Левая полоса (Pepe-акцент) -->
+        <Border Grid.Column="0" Background="#0c1222">
+            <Border BorderBrush="#1e293b" BorderThickness="0,0,1,0">
+                <StackPanel VerticalAlignment="Top" Margin="0,20,0,0">
+                    <Border Width="48" Height="48" CornerRadius="12" HorizontalAlignment="Center"
+                            Background="{StaticResource PepeAccentBrush}">
+                        <TextBlock Text="🐸" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Text="Pepe" Foreground="#64748b" FontSize="11" FontWeight="SemiBold"
+                               HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                    <TextBlock Text="Launcher" Foreground="#475569" FontSize="9"
+                               HorizontalAlignment="Center" Margin="0,2,0,0"/>
+                </StackPanel>
+            </Border>
+        </Border>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
+        <!-- Основная зона -->
+        <Grid Grid.Column="1" Margin="20,16,20,16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <!-- Список игр -->
-            <Border Grid.Column="0" Margin="0,0,10,0" CornerRadius="8" Background="#1F2933">
-                <DockPanel>
-                    <Border DockPanel.Dock="Bottom"
-                            Background="#111827"
-                            CornerRadius="0,0,8,8"
-                            Padding="10"
-                            Visibility="{Binding ElementName=DownloadProgressBar, Path=Visibility}">
-                        <StackPanel>
-                            <TextBlock x:Name="DownloadStatusText"
-                                       Text="Скачивание..."
+            <!-- Шапка -->
+            <DockPanel Grid.Row="0" LastChildFill="False" Margin="0,0,0,16">
+                <StackPanel DockPanel.Dock="Left">
+                    <TextBlock Text="Pepe Launcher"
+                               Foreground="White"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               FontFamily="Segoe UI"/>
+                    <TextBlock Text="Портативные игры — без установки"
+                               Foreground="#64748b"
+                               FontSize="13"
+                               Margin="0,4,0,0"/>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <CheckBox x:Name="OnlyInstalledCheckBox"
+                              Content="Только установленные"
+                              Margin="0,0,16,0"
+                              Checked="FilterChanged"
+                              Unchecked="FilterChanged"/>
+                    <Button x:Name="CheckUpdatesButton"
+                            Content="Проверить обновления"
+                            Style="{StaticResource PepeAccentButton}"
+                            Click="CheckUpdatesButton_Click"/>
+                </StackPanel>
+            </DockPanel>
+
+            <!-- Контент список + превью -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.6*" MinWidth="420"/>
+                    <ColumnDefinition Width="1.4*" MinWidth="320"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Список игр -->
+                <Border Grid.Column="0" Margin="0,0,12,0" CornerRadius="12" Padding="0"
+                        Background="{StaticResource SurfaceBrush}">
+                    <Border BorderBrush="#334155" BorderThickness="1" CornerRadius="12" ClipToBounds="True">
+                        <DockPanel>
+                            <Border DockPanel.Dock="Bottom"
+                                    Background="#111827"
+                                    Padding="14,12"
+                                    Visibility="{Binding ElementName=DownloadProgressBar, Path=Visibility}">
+                                <StackPanel>
+                                    <TextBlock x:Name="DownloadStatusText"
+                                               Text="Скачивание..."
+                                               Foreground="#e2e8f0"
+                                               FontSize="13"
+                                               Margin="0,0,0,8"/>
+                                    <ProgressBar x:Name="DownloadProgressBar"
+                                                 Minimum="0" Maximum="100"
+                                                 Height="8"
+                                                 Value="0"
+                                                 Visibility="Collapsed"/>
+                                    <Button x:Name="CancelDownloadButton"
+                                            Content="Отменить загрузку"
+                                            Style="{StaticResource PepeOutlineButton}"
+                                            Margin="0,10,0,0"
+                                            HorizontalAlignment="Left"
+                                            Visibility="Collapsed"
+                                            Click="CancelDownloadButton_Click"/>
+                                </StackPanel>
+                            </Border>
+
+                            <ListView x:Name="GamesListView"
+                                      Background="{StaticResource SurfaceBrush}"
+                                      BorderThickness="1"
+                                      Foreground="#e2e8f0"
+                                      SelectionChanged="GamesListView_SelectionChanged">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Margin" Value="8,4"/>
+                                        <Setter Property="Padding" Value="4"/>
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <!-- GridView требует GridViewRowPresenter, иначе колонки ломаются -->
+                                                <ControlTemplate TargetType="ListViewItem">
+                                                    <Border x:Name="Bd" Background="Transparent" CornerRadius="8" Padding="6" SnapsToDevicePixels="True">
+                                                        <GridViewRowPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                              Content="{TemplateBinding Content}"
+                                                                              Columns="{Binding Path=View.Columns, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter TargetName="Bd" Property="Background" Value="#1e293b"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsSelected" Value="True">
+                                                            <Setter TargetName="Bd" Property="Background" Value="#1e3a2f"/>
+                                                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource PepeAccentBrush}"/>
+                                                            <Setter TargetName="Bd" Property="BorderThickness" Value="1"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Игра"
+                                                        Width="200"
+                                                        DisplayMemberBinding="{Binding Name}"/>
+                                        <GridViewColumn Header="Статус" Width="120">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding IsInstalled, Converter={StaticResource BoolToStatusConverter}}"
+                                                               Foreground="#94a3b8"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Действие" Width="200">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Button Content="{Binding IsInstalled, Converter={StaticResource BoolToActionConverter}}"
+                                                                Style="{StaticResource PepeGameButton}"
+                                                                Click="GameActionButton_Click"
+                                                                Tag="{Binding}"
+                                                                Margin="0,0,8,0"/>
+                                                        <Button Content="Удалить"
+                                                                Style="{StaticResource PepeDangerButton}"
+                                                                Click="DeleteGameButton_Click"
+                                                                Tag="{Binding}"
+                                                                Visibility="{Binding IsInstalled, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </DockPanel>
+                    </Border>
+                </Border>
+
+                <!-- Превью -->
+                <Border Grid.Column="1" CornerRadius="12" Padding="16"
+                        Background="{StaticResource SurfaceBrush}">
+                    <Border BorderBrush="#334155" BorderThickness="1" CornerRadius="12" Padding="12">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="SelectedGameNameText"
+                                       Text="Выберите игру"
                                        Foreground="White"
-                                       Margin="0,0,0,6"/>
-                            <ProgressBar x:Name="DownloadProgressBar"
-                                         Minimum="0" Maximum="100"
-                                         Height="10"
-                                         Value="0"
-                                         Visibility="Collapsed"/>
-                            <Button x:Name="CancelDownloadButton"
-                                    Content="Отменить загрузку"
-                                    Margin="0,8,0,0"
-                                    Padding="8,3"
-                                    HorizontalAlignment="Left"
-                                    Visibility="Collapsed"
-                                    Click="CancelDownloadButton_Click"/>
-                        </StackPanel>
+                                       FontSize="22"
+                                       FontWeight="SemiBold"
+                                       Margin="0,0,0,12"/>
+                            <Border Grid.Row="1"
+                                    Background="#0f172a"
+                                    CornerRadius="10"
+                                    Padding="8">
+                                <Image x:Name="SelectedGameImage"
+                                       Stretch="Uniform"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
                     </Border>
-
-                    <ListView x:Name="GamesListView"
-                              Background="Transparent"
-                              BorderThickness="0"
-                              Foreground="White"
-                              SelectionChanged="GamesListView_SelectionChanged">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Margin" Value="0,2"/>
-                                <Setter Property="Padding" Value="6"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Игра" DisplayMemberBinding="{Binding Name}" Width="180"/>
-                                <GridViewColumn Header="Статус" Width="110">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding IsInstalled, Converter={StaticResource BoolToStatusConverter}}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Header="Действие" Width="190">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <Button Content="{Binding IsInstalled, Converter={StaticResource BoolToActionConverter}}"
-                                                        Click="GameActionButton_Click"
-                                                        Tag="{Binding}"
-                                                        Padding="6,2"
-                                                        Margin="0,0,6,0"/>
-                                                <Button Content="Удалить"
-                                                        Click="DeleteGameButton_Click"
-                                                        Tag="{Binding}"
-                                                        Padding="6,2"
-                                                        Visibility="{Binding IsInstalled, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </DockPanel>
-            </Border>
-
-            <!-- Превью игры -->
-            <Border Grid.Column="1" CornerRadius="8" Background="#1F2933" Padding="10">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                        <TextBlock x:Name="SelectedGameNameText"
-                                   Text="Выберите игру"
-                                   Foreground="White"
-                                   FontSize="20"
-                                   FontWeight="Bold"/>
-                    </StackPanel>
-                    <Border Grid.Row="1"
-                            Background="#111827"
-                            CornerRadius="6"
-                            Padding="4">
-                        <Image x:Name="SelectedGameImage"
-                               Stretch="Uniform"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
-                    </Border>
-                </Grid>
-            </Border>
+                </Border>
+            </Grid>
         </Grid>
-    </DockPanel>
+    </Grid>
 </Window>

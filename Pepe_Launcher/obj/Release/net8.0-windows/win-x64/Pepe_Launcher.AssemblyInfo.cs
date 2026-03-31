@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pepe_Launcher")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf6ebbf6773eb6bea048ed215da050777ffc117e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad8302be64b333f388612c3a17ff11eb19802254")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pepe_Launcher")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pepe_Launcher")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
